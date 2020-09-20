@@ -1,0 +1,13 @@
+<h1>Create A New Family Recipe</h1>
+
+<form method="POST" action="/recipes/new">
+<p>Recipe Name:<input type="text" name="name"></p>
+<p>Please seperate ingredients with commas for best results.</p>
+<p>Ingredients:<input type="text" name="ingredients">
+<p>Please seperate steps with a semicolon (;) for best results.</p>
+<p>Directions:<input type="textarea" name="instructions" rows="10" cols="50"> #! this isnt rendering correctly.</p>
+<p>prep time:<input type="text" name="prep_hours">hour(s), <input type="text" name="prep_minutes">minutes.</p>
+<p>cook time:<input type="text" name="cook_hours">hour(s), <input type="text" name="cook_minutes">minutes.</p>
+<p>Public -<input type="radio" name="pub" value=true> Secret -<input type="radio" name="pub" value=false></p>
+<input type="submit" name="submit">
+</form>

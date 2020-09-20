@@ -1,0 +1,13 @@
+#!signup page, username/password and password validation form. List fridge items(checklist?)?
+
+<H1>Welcome! Please sign up to begin sharing your family recipes!</H1>
+<form method="POST" action="/users/new">
+<p>*Username:<input type="text" name="username"></p>
+<p>*Password:<input type="text" name="password"></p>
+<p>*Verify Password:<input type="text" name="vpassword"></p>
+<h3>If your family has already created an account, enter the details below:</h3>
+<p>Family Name:<input type="text" name="family[family_name]"> </p>
+<p>Family Password:<input type='password' name="family[family_password]"></p>
+<input type="submit" name="submit" value="Submit">
+</form>
+

@@ -1,0 +1,29 @@
+<h1>Profile goes here</h1>
+
+<%= @user.id%><br>
+<%= @user.username%><br>
+<%= @user.family.name%><br>
+<%if @user == current_user%>
+        <form method='get' action='/users/<%=@user.id%>/edit'>
+        <input type="submit" value = "Edit">
+        </form>
+        <form method='get' action='/users/<%=@user.id%>'>
+        <input type="submit" name="_method" value = "delete">
+        </form>
+<%end%>
+Recipes: <%= @user.recipes.length%><br>
+<%@user.recipes.each do |recipe|%>
+<h3><a href='/recipes/<%=recipe.id%>'><%=recipe.name%></a></h3>
+<p>Total Time: <%=recipe.total_cook_time%></p>
+<%if @user == current_user%>
+    <form method='get' action='/recipe/<%=recipe.id%>/edit'>
+    <input type="submit" value = "Edit">
+    </form>
+    <form method='post' action='/recipe/<%=recipe.id%>/delete'>
+    <input type="submit" name="_method" value="delete">
+    </form>
+<%end%>
+<%end%>
+
+
+go through saved instance and use .errors.full_messages. Fridays lecture covers

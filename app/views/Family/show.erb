@@ -1,0 +1,25 @@
+<h1>The <%=@family.name%> Cookbook!</h1>
+<p>Family Admin:<a href="/users/<%= @family.admin_user_id %>"><%=family_admin.username%></a></p>
+<%if @family.admin_user_id == current_user.id%>
+        <form method='get' action='/families/<%=@family.id%>/edit'>      
+        <input type="submit" value = "Edit Family">
+        </form>
+        <form method='get' action='/families/<%=@family.id%>'>
+        <input type="submit" name="_method" value = "delete">
+        </form>
+<%end%>
+<h2>Family Recipes: <%=@family.recipes.length%></h2><br>
+<br>
+<%if @family.users.include?(current_user)%>
+    <%@family.recipes.each do |recipe|%>
+        <h3><a href="/recipes/<%= recipe.id%>"><%=recipe.name%></a></h3>
+        <p>Posted By:<a href="/users/<%=recipe.user.id%>"><%=recipe.user.username%></a></p>
+        <%end%>
+<%else%>
+    <%@family.recipes.each do |recipe|%>
+        <%if recipe.pub == true%>
+        <h3><a href="/recipes/<%= recipe.id%>"><%=recipe.name%></a></h3>
+        <p>Posted By:<a href="/users/<%=recipe.user.id%>"><%=recipe.user.username%></a></p>
+        <%end%>
+    <%end%>
+<%end%>
